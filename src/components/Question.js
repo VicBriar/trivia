@@ -35,11 +35,11 @@ class Question extends React.Component {
             <AnswerButton
               key={answer}
               answer={answer}
+              handleGuess={this.handleGuess}
             />
           ))}
         </div>
-
-        {/* Dynamically render correct/incorrect here! */}
+            {this.state.guessed ? <div><h4 className='fw-light fs-5 mb-4'>you guessed something</h4></div> : "" }
       </div>
     );
   }
