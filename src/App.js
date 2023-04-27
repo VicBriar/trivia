@@ -13,7 +13,7 @@ class App extends Component {
   componentDidMount() {
       fetch(TRIVIA_API)
         .then((res) => res.json())
-        .then((data) => {console.log("data is: ", data.results);})
+        .then((data) => {this.setState({question: data.results[0],}); console.log("data is: ", data.results);})
     }
 
 
@@ -27,7 +27,7 @@ class App extends Component {
         </h2>
         <hr />
         <div>
-          {/* Render question here */}
+          {this.state.question ? <Question question={this.state.question} /> : ""} 
         </div>
       </div>
     );
